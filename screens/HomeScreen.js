@@ -5,10 +5,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  View,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import Icon from "react-native-vector-icons/FontAwesome5";
+import { PanGestureHandler } from "react-native-gesture-handler";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,12 +39,17 @@ const HomeScreen = ({ navigation }) => {
     {
       name: "LifeCycleScreen",
       label: "LifeCycle",
-      icon: <Icon name="sync-alt" size={40} color="#61dafb" />,
+      icon: <FontAwesome6 name="infinity" size={30} color="#61dafb" />,
     },
     {
       name: "HooksScreen",
       label: "Hooks",
       icon: <MaterialCommunityIcons name="hook" size={40} color="#61dafb" />,
+    },
+    {
+      name: "InterviewQuestionsScreen",
+      label: "Interview Questions",
+      icon: <FontAwesome name="question" size={40} color="#61dafb" />,
     },
   ];
 
@@ -51,31 +58,52 @@ const HomeScreen = ({ navigation }) => {
     screen.label.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Handle swipe left gesture to navigate to Interview Questions
+  const handleSwipeLeft = () => {
+    navigation.navigate("InterviewQuestionsScreen");
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Welcome to React Native</Text>
+    <PanGestureHandler
+      onGestureEvent={(event) => {
+        if (event.nativeEvent.translationX < -50) {
+          handleSwipeLeft();
+        }
+      }}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.header}>Welcome to React Native</Text>
 
-      {/* Search Box */}
-      <TextInput
-        style={styles.searchBox}
-        placeholder="Search..."
-        placeholderTextColor="#ccc"
-        value={searchTerm}
-        onChangeText={(text) => setSearchTerm(text)}
-      />
+        {/* Search Box */}
+        <TextInput
+          style={styles.searchBox}
+          placeholder="Search..."
+          placeholderTextColor="#ccc"
+          value={searchTerm}
+          onChangeText={(text) => setSearchTerm(text)}
+        />
 
-      {/* Render filtered screens */}
-      {filteredScreens.map((screen, index) => (
-        <TouchableOpacity
-          key={index}
-          style={styles.card}
-          onPress={() => navigation.navigate(screen.name)}
-        >
-          {screen.icon}
-          <Text style={styles.cardText}>{screen.label}</Text>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
+        {/* Render filtered screens */}
+        {filteredScreens.map((screen, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.card}
+            onPress={() => navigation.navigate(screen.name)}
+          >
+            {screen.icon}
+            <Text style={styles.cardText}>{screen.label}</Text>
+          </TouchableOpacity>
+        ))}
+
+        {/* Indicator to show swiping option */}
+        <View style={styles.swipeIndicatorContainer}>
+          <Text style={styles.swipeText}>
+            Swipe Left for Interview Questions
+          </Text>
+          <MaterialCommunityIcons name="arrow-left" size={24} color="#61dafb" />
+        </View>
+      </ScrollView>
+    </PanGestureHandler>
   );
 };
 
@@ -122,6 +150,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 10,
+  },
+  swipeIndicatorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 30,
+  },
+  swipeText: {
+    fontSize: 16,
+    color: "#fff",
+    marginRight: 8,
   },
 });
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Button, StyleSheet, ScrollView } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LifeCycleScreen = () => {
   // State to track the counter
