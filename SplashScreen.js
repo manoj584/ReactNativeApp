@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   text: {
-    marginTop: 10, // Adds some space between the icon and the text
+    marginTop: 10,
     fontSize: 20,
     color: "#fff",
-    fontWeight: "bold", // Makes the text bold
+    fontWeight: "bold",
   },
 });
 

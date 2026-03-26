@@ -1,14 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const InterviewQuestionsScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Interview Questions</Text>
+    <ScrollView 
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
+    >
+      <View style={styles.headerSection}>
+        <Text style={styles.header}>Interview Questions</Text>
+        <Text style={styles.subtitle}>Test your React knowledge</Text>
+      </View>
 
-      {/* ReactJS Questions Card */}
-      <TouchableOpacity
+      <View style={styles.cardsContainer}>
+        {/* ReactJS Questions Card */}
+        <TouchableOpacity
         onPress={() =>
           navigation.navigate("QuestionDetailScreen", {
             category: "ReactJS",
@@ -430,14 +437,18 @@ const InterviewQuestionsScreen = ({ navigation }) => {
             ],
           })
         }
-        style={styles.card}
-      >
-        <MaterialCommunityIcons name="react" size={50} color="#61dafb" />
-        <Text style={styles.cardText}>ReactJS Questions</Text>
-      </TouchableOpacity>
+          style={styles.card}
+          activeOpacity={0.7}
+        >
+          <View style={styles.iconWrapper}>
+            <MaterialCommunityIcons name="react" size={60} color="#61dafb" />
+          </View>
+          <Text style={styles.cardTitle}>ReactJS Questions</Text>
+          <Text style={styles.cardSubtitle}>70+ Questions</Text>
+        </TouchableOpacity>
 
-      {/* React Native Questions Card */}
-      <TouchableOpacity
+        {/* React Native Questions Card */}
+        <TouchableOpacity
         onPress={() =>
           navigation.navigate("QuestionDetailScreen", {
             category: "React Native",
@@ -693,50 +704,84 @@ const InterviewQuestionsScreen = ({ navigation }) => {
             ],
           })
         }
-        style={styles.card}
-      >
-        <MaterialCommunityIcons name="android" size={50} color="#61dafb" />
-        <Text style={styles.cardText}>React Native Questions</Text>
-      </TouchableOpacity>
-    </View>
+          style={styles.card}
+          activeOpacity={0.7}
+        >
+          <View style={styles.iconWrapper}>
+            <MaterialCommunityIcons name="cellphone" size={60} color="#61dafb" />
+          </View>
+          <Text style={styles.cardTitle}>React Native Questions</Text>
+          <Text style={styles.cardSubtitle}>50+ Questions</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
     backgroundColor: "#282c34",
+    paddingBottom: 30,
+  },
+  headerSection: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+    alignItems: "center",
   },
   header: {
-    fontSize: 28,
+    fontSize: 32,
     color: "#61dafb",
-    marginBottom: 20,
     textAlign: "center",
-    fontWeight: "bold",
+    fontWeight: "800",
+    letterSpacing: 0.5,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#a0a0a0",
+    textAlign: "center",
+    marginTop: 8,
+    fontWeight: "400",
+  },
+  cardsContainer: {
+    paddingHorizontal: 20,
+    gap: 20,
   },
   card: {
-    width: "80%",
-    paddingVertical: 25,
     backgroundColor: "#3a3f47",
-    borderRadius: 10,
-    marginVertical: 15,
+    borderRadius: 16,
+    paddingVertical: 40,
+    paddingHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 5,
+    marginBottom: 20,
+    elevation: 6,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    borderWidth: 1,
+    borderColor: "#4a5057",
   },
-  cardText: {
-    fontSize: 18,
+  iconWrapper: {
+    marginBottom: 20,
+    backgroundColor: "rgba(97, 218, 251, 0.1)",
+    borderRadius: 50,
+    padding: 20,
+  },
+  cardTitle: {
+    fontSize: 22,
     color: "#fff",
-    fontWeight: "bold",
+    fontWeight: "700",
     textAlign: "center",
-    marginTop: 10,
+    marginBottom: 8,
+  },
+  cardSubtitle: {
+    fontSize: 14,
+    color: "#a0a0a0",
+    textAlign: "center",
+    fontWeight: "500",
   },
 });
 export default InterviewQuestionsScreen;

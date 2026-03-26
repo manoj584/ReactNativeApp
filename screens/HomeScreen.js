@@ -6,11 +6,15 @@ import {
   StyleSheet,
   TextInput,
   View,
+  Dimensions,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { PanGestureHandler } from "react-native-gesture-handler";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+
+const { width } = Dimensions.get('window');
+const CARD_WIDTH = width > 600 ? '45%' : '80%';
 
 const HomeScreen = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -71,36 +75,53 @@ const HomeScreen = ({ navigation }) => {
         }
       }}
     >
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.header}>Welcome to React Native</Text>
+      <ScrollView 
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header Section */}
+        <View style={styles.headerSection}>
+          <Text style={styles.header}>Welcome to React Native</Text>
+          <Text style={styles.subtitle}>Learn mobile development with ease</Text>
+        </View>
 
         {/* Search Box */}
-        <TextInput
-          style={styles.searchBox}
-          placeholder="Search..."
-          placeholderTextColor="#ccc"
-          value={searchTerm}
-          onChangeText={(text) => setSearchTerm(text)}
-        />
+        <View style={styles.searchWrapper}>
+          <View style={styles.searchContainer}>
+            <FontAwesome name="search" size={18} color="#61dafb" style={styles.searchIcon} />
+            <TextInput
+              style={styles.searchBox}
+              placeholder="Search topics..."
+              placeholderTextColor="#999"
+              value={searchTerm}
+              onChangeText={(text) => setSearchTerm(text)}
+            />
+          </View>
+        </View>
 
-        {/* Render filtered screens */}
-        {filteredScreens.map((screen, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.card}
-            onPress={() => navigation.navigate(screen.name)}
-          >
-            {screen.icon}
-            <Text style={styles.cardText}>{screen.label}</Text>
-          </TouchableOpacity>
-        ))}
+        {/* Cards Grid */}
+        <View style={styles.cardsGrid}>
+          {filteredScreens.map((screen, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.card}
+              onPress={() => navigation.navigate(screen.name)}
+              activeOpacity={0.7}
+            >
+              <View style={styles.iconWrapper}>
+                {screen.icon}
+              </View>
+              <Text style={styles.cardText}>{screen.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
 
-        {/* Indicator to show swiping option */}
+        {/* Swipe Indicator */}
         <View style={styles.swipeIndicatorContainer}>
+          <MaterialCommunityIcons name="gesture-swipe-left" size={24} color="#61dafb" />
           <Text style={styles.swipeText}>
-            Swipe Left for Interview Questions
+            Swipe left for Interview Questions
           </Text>
-          <MaterialCommunityIcons name="arrow-left" size={24} color="#61dafb" />
         </View>
       </ScrollView>
     </PanGestureHandler>
@@ -110,56 +131,102 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    alignItems: "center",
-    padding: 20,
     backgroundColor: "#282c34",
+    paddingBottom: 30,
+  },
+  headerSection: {
+    paddingTop: 20,
+    paddingBottom: 15,
+    paddingHorizontal: 20,
+    alignItems: "center",
   },
   header: {
-    fontSize: 28,
+    fontSize: 32,
     color: "#61dafb",
-    marginBottom: 20,
     textAlign: "center",
-    fontWeight: "bold",
+    fontWeight: "800",
+    letterSpacing: 0.5,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#a0a0a0",
+    textAlign: "center",
+    marginTop: 8,
+    fontWeight: "400",
+  },
+  searchWrapper: {
+    paddingHorizontal: 20,
+    marginBottom: 20,
+  },
+  searchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#3a3f47",
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    height: 50,
+    borderWidth: 1,
+    borderColor: "#4a5057",
+  },
+  searchIcon: {
+    marginRight: 12,
   },
   searchBox: {
-    width: "80%",
-    height: 40,
-    backgroundColor: "#3a3f47",
+    flex: 1,
     color: "#fff",
-    borderRadius: 8,
+    fontSize: 16,
+    height: 50,
+  },
+  cardsGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
     paddingHorizontal: 10,
-    marginBottom: 20,
   },
   card: {
-    width: "80%",
-    paddingVertical: 25,
+    width: CARD_WIDTH,
     backgroundColor: "#3a3f47",
-    borderRadius: 10,
-    marginVertical: 15,
+    borderRadius: 16,
+    marginVertical: 10,
+    paddingVertical: 30,
+    paddingHorizontal: 15,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 5,
+    elevation: 6,
     shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 4,
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    borderWidth: 1,
+    borderColor: "#4a5057",
+  },
+  iconWrapper: {
+    marginBottom: 12,
   },
   cardText: {
-    fontSize: 18,
+    fontSize: 16,
     color: "#fff",
-    fontWeight: "bold",
+    fontWeight: "700",
     textAlign: "center",
-    marginTop: 10,
   },
   swipeIndicatorContainer: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     marginTop: 30,
+    marginHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    backgroundColor: "#3a3f47",
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: "#4a5057",
   },
   swipeText: {
-    fontSize: 16,
-    color: "#fff",
-    marginRight: 8,
+    fontSize: 14,
+    color: "#a0a0a0",
+    marginLeft: 10,
+    fontWeight: "500",
   },
 });
 

@@ -16,7 +16,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import { FontAwesome } from "@expo/vector-icons"; // Menu icon import
+import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
@@ -147,6 +147,12 @@ function CustomDrawerContent(props) {
 
   return (
     <SafeAreaView style={styles.drawerContainer} edges={["top"]}>
+      <View style={styles.drawerHeader}>
+        <MaterialCommunityIcons name="react" size={50} color="#61dafb" />
+        <Text style={styles.drawerTitle}>React Native</Text>
+        <Text style={styles.drawerSubtitle}>Learning Hub</Text>
+      </View>
+      
       <View style={styles.searchContainer}>
         <FontAwesome
           name="search"
@@ -164,27 +170,30 @@ function CustomDrawerContent(props) {
       </View>
       <ScrollView
         style={styles.menuScroll}
-        contentContainerStyle={{ paddingTop: 8 }}
+        contentContainerStyle={{ paddingTop: 8, paddingBottom: 20 }}
+        showsVerticalScrollIndicator={false}
       >
         {filteredScreens.map((screen, index) => (
           <TouchableOpacity
             key={index}
             style={styles.menuItem}
             onPress={() => {
-              // dispatch a nested navigate action to the MainStack -> <screen.name>
               props.navigation.dispatch(
                 CommonActions.navigate({
                   name: "MainStack",
                   params: { screen: screen.name },
                 })
               );
-              // close drawer after dispatch
               props.navigation.closeDrawer();
             }}
+            activeOpacity={0.7}
           >
             <View style={styles.menuItemContent}>
-              {screen.icon}
+              <View style={styles.iconContainer}>
+                {screen.icon}
+              </View>
               <Text style={styles.menuItemText}>{screen.label}</Text>
+              <FontAwesome name="angle-right" size={20} color="#999" />
             </View>
           </TouchableOpacity>
         ))}
@@ -221,7 +230,6 @@ function StackNavigator() {
           shadowOpacity: 0,
           borderBottomWidth: 1,
           borderBottomColor: "#f0f0f0",
-          // avoid a hard fixed height — use minHeight and account for status bar on Android
           paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
           minHeight:
             Platform.OS === "android"
@@ -236,7 +244,6 @@ function StackNavigator() {
           lineHeight: 22,
         },
         headerTitleContainerStyle: {
-          // ensure title is vertically centered w.r.t status bar area
           justifyContent: "center",
           alignItems: "center",
           paddingTop:
@@ -578,48 +585,89 @@ const styles = StyleSheet.create({
   drawerContainer: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 0, // SafeAreaView handles top inset now
+    paddingTop: 0,
+  },
+  drawerHeader: {
+    alignItems: "center",
+    paddingVertical: 35,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#e9ecef",
+    marginBottom: 20,
+    backgroundColor: "#f8f9fa",
+  },
+  drawerTitle: {
+    fontSize: 26,
+    color: "#1a1a1a",
+    fontWeight: "800",
+    marginTop: 15,
+    letterSpacing: 0.5,
+  },
+  drawerSubtitle: {
+    fontSize: 14,
+    color: "#6c757d",
+    fontWeight: "500",
+    marginTop: 6,
+    letterSpacing: 0.3,
   },
   searchContainer: {
     flexDirection: "row",
     alignItems: "center",
+    marginHorizontal: 15,
+    marginBottom: 15,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 12,
     paddingHorizontal: 15,
-    paddingVertical: 10,
-    marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
-    paddingBottom: 15,
+    height: 50,
+    borderWidth: 1,
+    borderColor: "#e0e0e0",
   },
   searchIcon: {
-    marginRight: 10,
+    marginRight: 12,
   },
   searchBox: {
     flex: 1,
-    height: 40,
-    backgroundColor: "#f5f5f5",
-    borderRadius: 8,
-    paddingHorizontal: 15,
     fontSize: 16,
     color: "#333",
+    height: 50,
   },
   menuScroll: {
     flex: 1,
   },
   menuItem: {
-    paddingVertical: 12,
-    paddingHorizontal: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#f0f0f0",
+    marginHorizontal: 12,
+    marginVertical: 5,
+    borderRadius: 14,
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#e9ecef",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
   },
   menuItemContent: {
     flexDirection: "row",
     alignItems: "center",
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+  },
+  iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: "#f0f8ff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 14,
   },
   menuItemText: {
-    marginLeft: 15,
+    flex: 1,
     fontSize: 16,
-    color: "#333",
-    fontWeight: "500",
+    color: "#2c3e50",
+    fontWeight: "600",
+    letterSpacing: 0.2,
   },
   menuButton: {
     width: 44,
