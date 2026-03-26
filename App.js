@@ -22,7 +22,7 @@ import { useNavigation } from "@react-navigation/native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 // Importing Screens
-import SplashScreen from "./SplashScreen";
+import SplashScreen from "./screens/SplashScreen";
 import HomeScreen from "./screens/HomeScreen";
 import JSXScreen from "./screens/JSXScreen";
 import ComponentsScreen from "./screens/ComponentsScreen";
@@ -53,8 +53,8 @@ import TouchableOpacityScreen from "./screens/CoreComponentsScreens/TouchableOpa
 import TouchableWithoutFeedbackScreen from "./screens/CoreComponentsScreens/TouchableWithoutFeedbackScreen";
 import VirtualizedListScreen from "./screens/CoreComponentsScreens/VirtualizedListScreen";
 import ScrollViewScreen from "./screens/CoreComponentsScreens/ScrollViewScreen";
-import InterviewQuestionsScreen from "./InterviewQuestionsScreen";
-import QuestionDetailScreen from "./QuestionDetailScreen";
+import InterviewQuestionsScreen from "./screens/InterviewQuestionsScreen";
+import QuestionDetailScreen from "./screens/QuestionDetailScreen";
 
 // Redux actions, reducer, and store setup
 const INCREMENT = "INCREMENT";
