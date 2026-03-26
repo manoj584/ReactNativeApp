@@ -1,4 +1,4 @@
-package com.bhaskarmanoj.LearnReactNative
+package com.bhaskarmanoj.reactnativeacademy
 
 import android.app.Application
 import android.content.res.Configuration
