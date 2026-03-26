@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { PanGestureHandler } from "react-native-gesture-handler";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const { width } = Dimensions.get('window');
@@ -62,23 +61,11 @@ const HomeScreen = ({ navigation }) => {
     screen.label.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Handle swipe left gesture to navigate to Interview Questions
-  const handleSwipeLeft = () => {
-    navigation.navigate("InterviewQuestionsScreen");
-  };
-
   return (
-    <PanGestureHandler
-      onGestureEvent={(event) => {
-        if (event.nativeEvent.translationX < -50) {
-          handleSwipeLeft();
-        }
-      }}
+    <ScrollView 
+      contentContainerStyle={styles.container}
+      showsVerticalScrollIndicator={false}
     >
-      <ScrollView 
-        contentContainerStyle={styles.container}
-        showsVerticalScrollIndicator={false}
-      >
         {/* Header Section */}
         <View style={styles.headerSection}>
           <Text style={styles.header}>Welcome to React Native</Text>
@@ -116,15 +103,7 @@ const HomeScreen = ({ navigation }) => {
           ))}
         </View>
 
-        {/* Swipe Indicator */}
-        <View style={styles.swipeIndicatorContainer}>
-          <MaterialCommunityIcons name="gesture-swipe-left" size={24} color="#61dafb" />
-          <Text style={styles.swipeText}>
-            Swipe left for Interview Questions
-          </Text>
-        </View>
       </ScrollView>
-    </PanGestureHandler>
   );
 };
 
