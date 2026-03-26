@@ -87,7 +87,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.bhaskarmanoj.LearnReactNative'
+    namespace 'com.bhaskarmanoj.reactnativeacademy'
     
     def keystorePropertiesFile = rootProject.file("keystore.properties")
     def keystoreProperties = new Properties()
@@ -96,7 +96,7 @@ android {
     }
     
     defaultConfig {
-        applicationId 'com.bhaskarmanoj.LearnReactNative'
+        applicationId 'com.bhaskarmanoj.reactnativeacademy'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
