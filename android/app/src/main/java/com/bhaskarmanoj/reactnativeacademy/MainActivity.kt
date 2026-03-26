@@ -1,4 +1,4 @@
-package com.bhaskarmanoj.reactnativeacademy
+package com.bhaskarmanoj.LearnReactNative
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
