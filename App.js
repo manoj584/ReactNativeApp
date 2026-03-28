@@ -55,6 +55,7 @@ import VirtualizedListScreen from "./screens/CoreComponentsScreens/VirtualizedLi
 import ScrollViewScreen from "./screens/CoreComponentsScreens/ScrollViewScreen";
 import InterviewQuestionsScreen from "./screens/InterviewQuestionsScreen";
 import QuestionDetailScreen from "./screens/QuestionDetailScreen";
+import QuizScreen from "./screens/QuizScreen";
 
 // Redux actions, reducer, and store setup
 const INCREMENT = "INCREMENT";
@@ -138,6 +139,11 @@ function CustomDrawerContent(props) {
       name: "InterviewQuestionsScreen",
       label: "Interview Questions",
       icon: <FontAwesome name="question" size={32} color="#61dafb" />,
+    },
+    {
+      name: "QuizScreen",
+      label: "Quiz & Test",
+      icon: <MaterialCommunityIcons name="head-question" size={32} color="#61dafb" />,
     },
   ];
 
@@ -524,6 +530,14 @@ function StackNavigator() {
         name="QuestionDetailScreen"
         component={QuestionDetailScreen}
         options={{ headerLeft: () => <CustomBackButton /> }}
+      />
+      <Stack.Screen
+        name="QuizScreen"
+        component={QuizScreen}
+        options={{
+          title: "Quiz",
+          headerLeft: () => <CustomBackButton />,
+        }}
       />
     </Stack.Navigator>
   );

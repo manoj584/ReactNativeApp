@@ -54,6 +54,11 @@ const HomeScreen = ({ navigation }) => {
       label: "Interview Questions",
       icon: <FontAwesome name="question" size={40} color="#61dafb" />,
     },
+    {
+      name: "QuizScreen",
+      label: "Quiz & Test",
+      icon: <MaterialCommunityIcons name="head-question" size={40} color="#61dafb" />,
+    },
   ];
 
   // Filter the screens based on search term
