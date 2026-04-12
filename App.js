@@ -1,3 +1,4 @@
+import "./global.css";
 import React, { useState } from "react";
 import {
   TouchableOpacity,

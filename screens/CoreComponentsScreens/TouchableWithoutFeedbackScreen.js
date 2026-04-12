@@ -1,31 +1,23 @@
 import React from "react";
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Keyboard } from "react-native";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+  ScreenContainer, ScreenHeader, SubHeader, BodyText, BoldAccent, CodeBlock,
+} from "../../components/ui";
 
 const TouchableWithoutFeedbackScreen = () => {
-  const dismissKeyboard = () => {
-    Keyboard.dismiss();
-  };
+  const dismissKeyboard = () => Keyboard.dismiss();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>TouchableWithoutFeedback Component</Text>
+    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+      <ScreenHeader title="TouchableWithoutFeedback Component" />
 
-      {/* Basic Information */}
-      <Text style={styles.body}>
-        The <Text style={styles.bold}>TouchableWithoutFeedback</Text> component
+      <BodyText style={{ color: "#f0f0f0" }}>
+        The <BoldAccent>TouchableWithoutFeedback</BoldAccent> component
         is used to dismiss the keyboard when tapping outside of input fields.
-      </Text>
+      </BodyText>
 
-      {/* Syntax Example */}
-      <Text style={styles.subHeader}>Syntax Example:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Syntax Example:</SubHeader>
+      <CodeBlock>{`
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 return (
@@ -34,56 +26,19 @@ return (
       <Text>Tap here to dismiss the keyboard</Text>
     </View>
   </TouchableWithoutFeedback>
-);
-        `}</Text>
-      </View>
+);`}</CodeBlock>
 
-      {/* Touchable Without Feedback Example */}
       <TouchableWithoutFeedback onPress={dismissKeyboard}>
         <View style={styles.box}>
-          <Text style={styles.body}>Tap here to dismiss the keyboard</Text>
+          <Text style={{ fontSize: 16, color: "#f0f0f0" }}>Tap here to dismiss the keyboard</Text>
         </View>
       </TouchableWithoutFeedback>
-    </View>
+    </ScreenContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#282c34",
-  },
-  header: {
-    fontSize: 28,
-    color: "#61dafb",
-    marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  subHeader: { fontSize: 20, color: "#61dafb", marginVertical: 15 },
-  body: {
-    fontSize: 16,
-    color: "#f0f0f0",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  exampleBox: {
-    width: "100%",
-    backgroundColor: "#333840",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  code: { color: "#f0f0f0", fontSize: 14, fontFamily: "monospace" },
-  bold: { fontWeight: "bold", color: "#61dafb" },
-  box: {
-    backgroundColor: "#61dafb",
-    padding: 15,
-    borderRadius: 5,
-  },
+  box: { backgroundColor: "#61dafb", padding: 15, borderRadius: 5 },
 });
 
 export default TouchableWithoutFeedbackScreen;

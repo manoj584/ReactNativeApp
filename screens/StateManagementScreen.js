@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, Button, StyleSheet, ScrollView } from "react-native";
+import { View, Text, Button } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  ScreenContainer,
+  ScreenHeader,
+  SubHeader,
+  BodyText,
+  BoldAccent,
+  CodeBlock,
+} from "../components/ui";
 
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
@@ -15,18 +23,17 @@ const StateManagementScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>State Management in React Native</Text>
-      <Text style={styles.intro}>
+    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+      <ScreenHeader title="State Management in React Native" />
+      <BodyText style={{ color: "#f0f0f0" }}>
         React Native supports both local and global state management. Local
         state is managed within individual components using hooks like{" "}
-        <Text style={styles.bold}>useState</Text>, while global state is managed
+        <BoldAccent>useState</BoldAccent>, while global state is managed
         across components, commonly using libraries like Redux.
-      </Text>
+      </BodyText>
 
-      <Text style={styles.subHeader}>Local State Management (useState):</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Local State Management (useState):</SubHeader>
+      <CodeBlock>{`
 const [count, setCount] = useState(0);
 
 const incrementCount = () => {
@@ -35,14 +42,14 @@ const incrementCount = () => {
 
 const decrementCount = () => {
   setCount(count - 1);
-};
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        The <Text style={styles.bold}>useState</Text> hook allows components to
+};`}</CodeBlock>
+      <BodyText style={{ color: "#f0f0f0" }}>
+        The <BoldAccent>useState</BoldAccent> hook allows components to
         have their own local state.
+      </BodyText>
+      <Text style={{ fontSize: 20, color: "#fff", marginVertical: 10 }}>
+        Local Count: {count}
       </Text>
-      <Text style={styles.countText}>Local Count: {count}</Text>
       <Button
         title="Increment"
         color="#61dafb"
@@ -54,25 +61,23 @@ const decrementCount = () => {
         onPress={() => setCount(count - 1)}
       />
 
-      {/* Redux Example */}
-      <Text style={styles.subHeader}>Global State Management (Redux):</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Global State Management (Redux):</SubHeader>
+      <CodeBlock>{`
 // Redux state is accessed using useSelector and updated using dispatch
 
 const globalCount = useSelector((state) => state.counter);
 const dispatch = useDispatch();
 
 const incrementGlobalCount = () => dispatch(increment());
-const decrementGlobalCount = () => dispatch(decrement());
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
+const decrementGlobalCount = () => dispatch(decrement());`}</CodeBlock>
+      <BodyText style={{ color: "#f0f0f0" }}>
         Using Redux, we can manage global state across components. Here, we use{" "}
-        <Text style={styles.bold}>useSelector</Text> to access state and{" "}
-        <Text style={styles.bold}>dispatch</Text> to update it.
+        <BoldAccent>useSelector</BoldAccent> to access state and{" "}
+        <BoldAccent>dispatch</BoldAccent> to update it.
+      </BodyText>
+      <Text style={{ fontSize: 20, color: "#fff", marginVertical: 10 }}>
+        Global Count: {globalCount}
       </Text>
-      <Text style={styles.countText}>Global Count: {globalCount}</Text>
       <Button
         title="Increment Global Count"
         color="#61dafb"
@@ -83,63 +88,8 @@ const decrementGlobalCount = () => dispatch(decrement());
         color="#61dafb"
         onPress={() => dispatch(decrement())}
       />
-    </ScrollView>
+    </ScreenContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#282c34",
-    padding: 20,
-  },
-  header: {
-    fontSize: 28,
-    color: "#61dafb",
-    marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  intro: {
-    fontSize: 16,
-    color: "#f0f0f0",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  subHeader: {
-    fontSize: 20,
-    color: "#61dafb",
-    marginVertical: 15,
-  },
-  exampleBox: {
-    width: "100%",
-    backgroundColor: "#333840",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  code: {
-    color: "#f0f0f0",
-    fontSize: 14,
-    fontFamily: "monospace",
-  },
-  bold: {
-    fontWeight: "bold",
-    color: "#61dafb",
-  },
-  countText: {
-    fontSize: 20,
-    color: "#fff",
-    marginVertical: 10,
-  },
-  body: {
-    fontSize: 16,
-    color: "#f0f0f0",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-});
 
 export default StateManagementScreen;

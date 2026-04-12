@@ -1,28 +1,25 @@
 import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableNativeFeedback,
-  DrawerLayoutAndroid,
-} from "react-native";
+  ScreenContainer,
+  ScreenHeader,
+  SubHeader,
+  BodyText,
+  BoldAccent,
+  CodeBlock,
+} from "../components/ui";
 
 const AndroidComponentsScreen = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Android Components</Text>
+    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+      <ScreenHeader title="Android Components" />
 
-      {/* DrawerLayoutAndroid Example */}
-      <Text style={styles.subHeader}>DrawerLayoutAndroid</Text>
-      <Text style={styles.body}>
+      <SubHeader>DrawerLayoutAndroid</SubHeader>
+      <BodyText style={{ color: "#f0f0f0" }}>
         DrawerLayoutAndroid provides a sliding drawer for Android apps.
-      </Text>
+      </BodyText>
 
-      {/* Syntax Example for DrawerLayoutAndroid */}
-      <Text style={styles.subHeader}>Syntax Example:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Syntax Example:</SubHeader>
+      <CodeBlock>{`
 import { DrawerLayoutAndroid } from 'react-native';
 
 const drawer = useRef(null);
@@ -44,26 +41,21 @@ return (
       </View>
     </TouchableNativeFeedback>
   </DrawerLayoutAndroid>
-);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
+);`}</CodeBlock>
+      <BodyText style={{ color: "#f0f0f0" }}>
         In the example above,{" "}
-        <Text style={styles.bold}>DrawerLayoutAndroid</Text> is used to create a
+        <BoldAccent>DrawerLayoutAndroid</BoldAccent> is used to create a
         sliding drawer. The drawer can be opened with a button press.
-      </Text>
+      </BodyText>
 
-      {/* TouchableNativeFeedback Example */}
-      <Text style={styles.subHeader}>TouchableNativeFeedback</Text>
-      <Text style={styles.body}>
+      <SubHeader>TouchableNativeFeedback</SubHeader>
+      <BodyText style={{ color: "#f0f0f0" }}>
         TouchableNativeFeedback creates native feedback effects on Android, like
         ripple effects.
-      </Text>
+      </BodyText>
 
-      {/* Syntax Example for TouchableNativeFeedback */}
-      <Text style={styles.subHeader}>Syntax Example:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Syntax Example:</SubHeader>
+      <CodeBlock>{`
 import { TouchableNativeFeedback } from 'react-native';
 
 return (
@@ -72,84 +64,14 @@ return (
       <Text style={styles.buttonText}>Press Me</Text>
     </View>
   </TouchableNativeFeedback>
-);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
+);`}</CodeBlock>
+      <BodyText style={{ color: "#f0f0f0" }}>
         In the example above,{" "}
-        <Text style={styles.bold}>TouchableNativeFeedback</Text> is used to add
+        <BoldAccent>TouchableNativeFeedback</BoldAccent> is used to add
         ripple effect when the button is pressed.
-      </Text>
-    </ScrollView>
+      </BodyText>
+    </ScreenContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#282c34",
-    padding: 20,
-  },
-  header: {
-    fontSize: 28,
-    color: "#61dafb",
-    marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  subHeader: {
-    fontSize: 20,
-    color: "#61dafb",
-    marginVertical: 15,
-  },
-  body: {
-    fontSize: 16,
-    color: "#f0f0f0",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  exampleBox: {
-    width: "100%",
-    backgroundColor: "#333840",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  code: {
-    color: "#f0f0f0",
-    fontSize: 14,
-    fontFamily: "monospace",
-  },
-  bold: {
-    fontWeight: "bold",
-    color: "#61dafb",
-  },
-  button: {
-    backgroundColor: "#3a3f47",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    marginBottom: 20,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-  },
-  drawerContent: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#61dafb",
-    height: "100%",
-  },
-  drawerText: {
-    fontSize: 18,
-    color: "#fff",
-  },
-});
 
 export default AndroidComponentsScreen;

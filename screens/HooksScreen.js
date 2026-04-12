@@ -1,14 +1,13 @@
-import React, {
-  useState,
-  useEffect,
-  useContext,
-  useRef,
-  useReducer,
-  useCallback,
-  useMemo,
-  createContext,
-} from "react";
-import { View, Text, Button, StyleSheet, ScrollView } from "react-native";
+import React, { useState, useEffect, createContext } from "react";
+import { View, Text, Button } from "react-native";
+import {
+  ScreenContainer,
+  ScreenHeader,
+  SubHeader,
+  BodyText,
+  BoldAccent,
+  CodeBlock,
+} from "../components/ui";
 
 // Custom hook
 const useCustomCounter = (initialValue = 0) => {
@@ -45,29 +44,25 @@ const HooksScreen = () => {
   }, [customCounter.count]);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>React Native Hooks</Text>
+    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+      <ScreenHeader title="React Native Hooks" />
 
       {/* useState Hook */}
-      <Text style={styles.subHeader}>useState:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useState:</SubHeader>
+      <CodeBlock>{`// Syntax
 const [state, setState] = useState(initialState);
 
 // Example
-const [count, setCount] = useState(0);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useState</Text> adds state to a functional
-        component. Here, <Text style={styles.bold}>count</Text> is a state
-        variable, and <Text style={styles.bold}>setCount</Text> updates it.
-      </Text>
+const [count, setCount] = useState(0);`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useState</BoldAccent> adds state to a functional
+        component. Here, <BoldAccent>count</BoldAccent> is a state
+        variable, and <BoldAccent>setCount</BoldAccent> updates it.
+      </BodyText>
 
       {/* useEffect Hook */}
-      <Text style={styles.subHeader}>useEffect:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useEffect:</SubHeader>
+      <CodeBlock>{`// Syntax
 useEffect(() => {
   // effect code
 }, [dependencies]);
@@ -76,68 +71,56 @@ useEffect(() => {
 useEffect(() => {
   console.log("Component Mounted");
   return () => console.log("Component Unmounted");
-}, []);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useEffect</Text> runs after every render. By
+}, []);`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useEffect</BoldAccent> runs after every render. By
         providing dependencies, it can simulate lifecycle events (mount, update,
         unmount).
-      </Text>
+      </BodyText>
 
       {/* useContext Hook */}
-      <Text style={styles.subHeader}>useContext:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useContext:</SubHeader>
+      <CodeBlock>{`// Syntax
 const value = useContext(MyContext);
 
 // Example
-const count = useContext(CountContext);
-          `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useContext</Text> allows access to context
+const count = useContext(CountContext);`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useContext</BoldAccent> allows access to context
         values directly without needing a Consumer component.
-      </Text>
+      </BodyText>
 
       {/* useRef Hook */}
-      <Text style={styles.subHeader}>useRef:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useRef:</SubHeader>
+      <CodeBlock>{`// Syntax
 const ref = useRef(initialValue);
 
 // Example
 const countRef = useRef(0);
-countRef.current += 1;
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useRef</Text> provides a mutable ref object
+countRef.current += 1;`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useRef</BoldAccent> provides a mutable ref object
         that persists across renders, allowing access to a DOM element or
         storing a value without re-rendering.
-      </Text>
+      </BodyText>
 
       {/* useReducer Hook */}
-      <Text style={styles.subHeader}>useReducer:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useReducer:</SubHeader>
+      <CodeBlock>{`// Syntax
 const [state, dispatch] = useReducer(reducer, initialState);
 
 // Example
 const [state, dispatch] = useReducer(reducer, 0);
-dispatch({ type: "increment" });
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useReducer</Text> is for complex state logic,
+dispatch({ type: "increment" });`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useReducer</BoldAccent> is for complex state logic,
         providing a reducer function and initial state, returning the current
         state and a dispatch function.
-      </Text>
+      </BodyText>
 
       {/* useCallback Hook */}
-      <Text style={styles.subHeader}>useCallback:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useCallback:</SubHeader>
+      <CodeBlock>{`// Syntax
 const memoizedCallback = useCallback(() => {
   // callback code
 }, [dependencies]);
@@ -145,19 +128,16 @@ const memoizedCallback = useCallback(() => {
 // Example
 const memoizedCallback = useCallback(() => {
   alert("Callback triggered!");
-}, []);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useCallback</Text> memoizes a callback
+}, []);`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useCallback</BoldAccent> memoizes a callback
         function, preventing its recreation on every render unless its
         dependencies change.
-      </Text>
+      </BodyText>
 
       {/* useMemo Hook */}
-      <Text style={styles.subHeader}>useMemo:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>useMemo:</SubHeader>
+      <CodeBlock>{`// Syntax
 const memoizedValue = useMemo(() => {
   // calculation code
 }, [dependencies]);
@@ -165,19 +145,16 @@ const memoizedValue = useMemo(() => {
 // Example
 const expensiveCalculation = useMemo(() => {
   return count * 2;
-}, [count]);
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        <Text style={styles.bold}>useMemo</Text> memoizes the result of a
+}, [count]);`}</CodeBlock>
+      <BodyText>
+        <BoldAccent>useMemo</BoldAccent> memoizes the result of a
         computation to optimize performance, recalculating only when
         dependencies change.
-      </Text>
+      </BodyText>
 
       {/* Custom Hook Example */}
-      <Text style={styles.subHeader}>Custom Hook:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`// Syntax
+      <SubHeader>Custom Hook:</SubHeader>
+      <CodeBlock>{`// Syntax
 const useCustomHook = (initialValue) => {
   // hook logic
   return hookResult;
@@ -189,23 +166,21 @@ const useCustomCounter = (initialValue = 0) => {
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
   return { count, increment, decrement };
-};
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
+};`}</CodeBlock>
+      <BodyText>
         Custom hooks allow reuse of stateful logic.{" "}
-        <Text style={styles.bold}>useCustomCounter</Text> provides a counter
+        <BoldAccent>useCustomCounter</BoldAccent> provides a counter
         with increment and decrement functions.
-      </Text>
+      </BodyText>
 
       {/* Demonstration of Custom Hook */}
-      <View style={styles.counterContainer}>
+      <View style={{ marginTop: 20, alignItems: "center" }}>
         <Button
           color="#61dafb"
           title="Increment Custom Count"
           onPress={customCounter.increment}
         />
-        <Text style={styles.countText}>
+        <Text style={{ fontSize: 24, color: "rgb(246,247,249)", marginVertical: 10 }}>
           Custom Count: {customCounter.count}
         </Text>
         <Button
@@ -214,61 +189,8 @@ const useCustomCounter = (initialValue = 0) => {
           onPress={customCounter.decrement}
         />
       </View>
-    </ScrollView>
+    </ScreenContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgb(35,39,47)",
-    padding: 20,
-  },
-  header: {
-    fontSize: 28,
-    color: "#61dafb",
-    marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  body: {
-    fontSize: 16,
-    color: "rgb(180,180,180)",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  subHeader: {
-    fontSize: 20,
-    color: "#61dafb",
-    marginVertical: 15,
-  },
-  exampleBox: {
-    width: "100%",
-    backgroundColor: "#333840",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  code: {
-    color: "rgb(246,247,249)",
-    fontSize: 14,
-    fontFamily: "monospace",
-  },
-  bold: {
-    fontWeight: "bold",
-    color: "#61dafb",
-  },
-  counterContainer: {
-    marginTop: 20,
-    alignItems: "center",
-  },
-  countText: {
-    fontSize: 24,
-    color: "rgb(246,247,249)",
-    marginVertical: 10,
-  },
-});
 
 export default HooksScreen;

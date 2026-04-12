@@ -1,32 +1,24 @@
 import React, { useState } from "react";
+import { View, Text, StyleSheet, Modal, Button, TouchableOpacity } from "react-native";
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Modal,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+  ScreenContainer, ScreenHeader, SubHeader, BodyText, BoldAccent, CodeBlock,
+} from "../../components/ui";
 
 const ModalScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>Modal Component</Text>
+    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+      <ScreenHeader title="Modal Component" />
 
-      {/* Basic Information */}
-      <Text style={styles.body}>
-        The <Text style={styles.bold}>Modal</Text> component is used to create
+      <BodyText style={{ color: "#f0f0f0" }}>
+        The <BoldAccent>Modal</BoldAccent> component is used to create
         an overlay that can be displayed on top of the current view. It is
         commonly used for pop-ups or custom dialogs.
-      </Text>
+      </BodyText>
 
-      {/* Syntax Example */}
-      <Text style={styles.subHeader}>Syntax Example:</Text>
-      <View style={styles.exampleBox}>
-        <Text style={styles.code}>{`
+      <SubHeader>Syntax Example:</SubHeader>
+      <CodeBlock>{`
 import { Modal, View, Text, Button } from 'react-native';
 import React, { useState } from 'react';
 
@@ -51,19 +43,16 @@ const App = () => {
       <Button title="Open Modal" onPress={() => setModalVisible(true)} />
     </View>
   );
-};
-        `}</Text>
-      </View>
-      <Text style={styles.body}>
-        In the example above, a <Text style={styles.bold}>Modal</Text> is
+};`}</CodeBlock>
+      <BodyText style={{ color: "#f0f0f0" }}>
+        In the example above, a <BoldAccent>Modal</BoldAccent> is
         triggered by a button. It uses the{" "}
-        <Text style={styles.bold}>animationType</Text> property to define the
-        opening animation and <Text style={styles.bold}>onRequestClose</Text>{" "}
+        <BoldAccent>animationType</BoldAccent> property to define the
+        opening animation and <BoldAccent>onRequestClose</BoldAccent>{" "}
         for closing functionality.
-      </Text>
+      </BodyText>
 
-      {/* Demo Modal */}
-      <Text style={styles.subHeader}>Demo:</Text>
+      <SubHeader>Demo:</SubHeader>
       <Button title="Show Modal" onPress={() => setModalVisible(true)} />
       <Modal
         animationType="slide"
@@ -83,41 +72,11 @@ const App = () => {
           </View>
         </View>
       </Modal>
-    </ScrollView>
+    </ScreenContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#282c34",
-  },
-  header: {
-    fontSize: 28,
-    color: "#61dafb",
-    marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  subHeader: { fontSize: 20, color: "#61dafb", marginVertical: 15 },
-  body: {
-    fontSize: 16,
-    color: "#f0f0f0",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  exampleBox: {
-    width: "100%",
-    backgroundColor: "#333840",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  code: { color: "#f0f0f0", fontSize: 14, fontFamily: "monospace" },
-  bold: { fontWeight: "bold", color: "#61dafb" },
   modalOverlay: {
     flex: 1,
     justifyContent: "center",
@@ -130,19 +89,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
   },
-  modalText: {
-    fontSize: 18,
-    marginBottom: 15,
-  },
-  closeButton: {
-    backgroundColor: "#61dafb",
-    padding: 10,
-    borderRadius: 5,
-  },
-  closeButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
+  modalText: { fontSize: 18, marginBottom: 15 },
+  closeButton: { backgroundColor: "#61dafb", padding: 10, borderRadius: 5 },
+  closeButtonText: { color: "#fff", fontWeight: "bold" },
 });
 
 export default ModalScreen;
