@@ -17,10 +17,10 @@ export function ScreenContainer({ children, style }) {
 
 export function ScreenHeader({ title, subtitle }) {
   return (
-    <View style={{ paddingTop: 4, paddingBottom: 15, alignItems: "center" }}>
+    <View style={{ paddingTop: 30, paddingBottom: 25, paddingHorizontal: 20, alignItems: "center" }}>
       <Text
         style={{
-          fontSize: 28,
+          fontSize: 30,
           color: "#61dafb",
           fontWeight: "800",
           textAlign: "center",
@@ -32,10 +32,11 @@ export function ScreenHeader({ title, subtitle }) {
       {subtitle && (
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 17,
             color: "#a0a0a0",
             textAlign: "center",
-            marginTop: 8,
+            marginTop: 12,
+            lineHeight: 24,
           }}
         >
           {subtitle}
