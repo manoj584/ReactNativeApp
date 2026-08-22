@@ -17,7 +17,7 @@ const VirtualizedListScreen = () => {
     <View style={styles.container}>
       <ScreenHeader title="VirtualizedList Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>VirtualizedList</BoldAccent> component is a
         performance-optimized list for rendering large data sets in a
         virtualized manner.
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#282c34",
   },
-  item: { fontSize: 16, color: "#f0f0f0", marginBottom: 10, textAlign: "center" },
+  item: { fontSize: 16, color: "#b4b4b4", marginBottom: 10, textAlign: "center" },
 });
 
 export default VirtualizedListScreen;

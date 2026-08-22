@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, SectionList } from "react-native";
+import { Text, StyleSheet, SectionList, View } from "react-native";
 import {
   ScreenHeader, SubHeader, BodyText, BoldAccent, CodeBlock,
 } from "../../components/ui";
@@ -11,11 +11,11 @@ const SectionListScreen = () => {
     { title: "Dairy", data: ["Milk", "Cheese", "Butter", "Yogurt"] },
   ];
 
-  return (
-    <View style={styles.container}>
+  const ListHeader = () => (
+    <View style={styles.headerContent}>
       <ScreenHeader title="SectionList Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>SectionList</BoldAccent> component is used to
         render a list with section headers, allowing for efficient rendering of
         large lists with grouped data.
@@ -41,12 +41,16 @@ return (
 );`}</CodeBlock>
 
       <SubHeader>Sectioned List Example</SubHeader>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         Below is a simple example using the{" "}
         <BoldAccent>SectionList</BoldAccent> component to display
         different categories of items.
       </BodyText>
+    </View>
+  );
 
+  return (
+    <View style={styles.container}>
       <SectionList
         sections={sections}
         renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
@@ -54,6 +58,9 @@ return (
           <Text style={styles.sectionHeader}>{section.title}</Text>
         )}
         keyExtractor={(item, index) => index.toString()}
+        ListHeaderComponent={<ListHeader />}
+        ListFooterComponent={<View style={{ height: 40 }} />}
+        contentContainerStyle={styles.listContent}
       />
     </View>
   );
@@ -61,13 +68,16 @@ return (
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "#282c34",
+    flex: 1,
+    backgroundColor: "#20232a",
   },
-  item: { fontSize: 16, color: "#f0f0f0", padding: 10, textAlign: "center" },
+  headerContent: {
+    padding: 20,
+  },
+  listContent: {
+    paddingBottom: 20,
+  },
+  item: { fontSize: 16, color: "#b4b4b4", padding: 10, textAlign: "center" },
   sectionHeader: {
     fontSize: 18, color: "#61dafb", backgroundColor: "#444c56",
     padding: 10, fontWeight: "bold",

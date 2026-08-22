@@ -21,7 +21,7 @@ const QuestionDetailScreen = ({ route }) => {
             </Text>
           </View>
           <View style={{ paddingLeft: 44, paddingTop: 8 }}>
-            <Text style={{ fontSize: 15, color: "#e0e0e0", lineHeight: 22 }}>
+            <Text style={{ fontSize: 15, color: "#b4b4b4", lineHeight: 22 }}>
               {item.answer}
             </Text>
           </View>

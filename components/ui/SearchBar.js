@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#3a3f47",
+    backgroundColor: "#282c34",
     borderRadius: 12,
     paddingHorizontal: 15,
     height: 50,
     borderWidth: 1,
-    borderColor: "#4a5057",
+    borderColor: "#373b47",
     marginBottom: 20,
   },
   icon: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 16,
     height: 50,
   },

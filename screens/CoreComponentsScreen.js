@@ -33,10 +33,10 @@ const COMPONENTS_DATA = [
 const CoreComponentsScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ScreenHeader title="Core Components" />
       <FlatList
         data={COMPONENTS_DATA}
         keyExtractor={(item) => item.name}
+        ListHeaderComponent={<ScreenHeader title="Core Components" />}
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => navigation.navigate(item.name + "Screen")}
@@ -49,6 +49,7 @@ const CoreComponentsScreen = ({ navigation }) => {
             <Text style={styles.tableCell}>{item.usage}</Text>
           </TouchableOpacity>
         )}
+        ListFooterComponent={<View style={{ height: 20 }} />}
       />
     </View>
   );
@@ -58,17 +59,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#282c34",
+    backgroundColor: "#20232a",
   },
   tableRow: {
     flexDirection: "row",
     paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#3a3f47",
+    borderBottomColor: "#373b47",
   },
   tableCell: {
     flex: 1,
-    color: "#f0f0f0",
+    color: "#b4b4b4",
     fontSize: 14,
     paddingHorizontal: 5,
   },

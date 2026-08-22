@@ -12,13 +12,15 @@ export function CodeBlock({ children, style }) {
 const styles = StyleSheet.create({
   exampleBox: {
     width: "100%",
-    backgroundColor: "#333840",
+    backgroundColor: "#1a1d23",
     padding: 15,
     borderRadius: 10,
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: "#373b47",
   },
   code: {
-    color: "rgb(246,247,249)",
+    color: "#ffffff",
     fontSize: 14,
     fontFamily: "monospace",
   },

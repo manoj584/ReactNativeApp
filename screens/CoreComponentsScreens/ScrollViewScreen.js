@@ -8,7 +8,7 @@ const ScrollViewScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="ScrollView Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>ScrollView</BoldAccent> component is used to
         create scrollable containers in a React Native app. It can handle
         content that overflows the screen size.
@@ -26,7 +26,7 @@ return (
     ...
   </ScrollView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, the <BoldAccent>ScrollView</BoldAccent>{" "}
         wraps multiple child components, allowing them to be scrolled
         vertically.
@@ -37,14 +37,14 @@ return (
 import { ScrollView, Text } from 'react-native';
 
 return (
-  <ScrollView style={{ backgroundColor: '#f0f0f0', padding: 10 }}>
+  <ScrollView style={{ backgroundColor: '#b4b4b4', padding: 10 }}>
     <Text style={{ fontSize: 16, marginBottom: 10 }}>Item 1</Text>
     <Text style={{ fontSize: 16, marginBottom: 10 }}>Item 2</Text>
     <Text style={{ fontSize: 16, marginBottom: 10 }}>Item 3</Text>
     ...
   </ScrollView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In this example, a styled <BoldAccent>ScrollView</BoldAccent>{" "}
         with padding and background color is used to create a visually appealing
         scrollable container.

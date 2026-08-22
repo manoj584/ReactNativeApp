@@ -9,7 +9,7 @@ const TouchableHighlightScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="TouchableHighlight Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>TouchableHighlight</BoldAccent> component is
         used to create a button-like element with a highlight effect when
         pressed.
@@ -41,7 +41,7 @@ return (
 
 const styles = StyleSheet.create({
   button: { backgroundColor: "#61dafb", padding: 15, borderRadius: 5 },
-  buttonText: { color: "#fff", fontSize: 16 },
+  buttonText: { color: "#ffffff", fontSize: 16 },
 });
 
 export default TouchableHighlightScreen;

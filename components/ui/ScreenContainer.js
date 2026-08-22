@@ -5,7 +5,7 @@ export function ScreenContainer({ children, style }) {
   return (
     <ScrollView
       contentContainerStyle={[
-        { flexGrow: 1, backgroundColor: "#282c34", padding: 20, paddingBottom: 30 },
+        { flexGrow: 1, backgroundColor: "#20232a", padding: 20, paddingBottom: 30 },
         style,
       ]}
       showsVerticalScrollIndicator={false}
@@ -33,7 +33,7 @@ export function ScreenHeader({ title, subtitle }) {
         <Text
           style={{
             fontSize: 17,
-            color: "#a0a0a0",
+            color: "#b4b4b4",
             textAlign: "center",
             marginTop: 12,
             lineHeight: 24,
@@ -58,7 +58,7 @@ export function BodyText({ children, style }) {
   return (
     <Text
       style={[
-        { fontSize: 16, color: "rgb(180,180,180)", marginBottom: 20, textAlign: "center" },
+        { fontSize: 16, color: "#b4b4b4", marginBottom: 20, textAlign: "center" },
         style,
       ]}
     >

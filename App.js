@@ -170,7 +170,7 @@ function CustomDrawerContent(props) {
         <TextInput
           style={styles.searchBox}
           placeholder="Search..."
-          placeholderTextColor="#999"
+          placeholderTextColor="#6c757d"
           value={searchTerm}
           onChangeText={setSearchTerm}
         />
@@ -200,7 +200,7 @@ function CustomDrawerContent(props) {
                 {screen.icon}
               </View>
               <Text style={styles.menuItemText}>{screen.label}</Text>
-              <FontAwesome name="angle-right" size={20} color="#999" />
+              <FontAwesome name="angle-right" size={20} color="#6c757d" />
             </View>
           </TouchableOpacity>
         ))}
@@ -232,11 +232,11 @@ function StackNavigator() {
       screenOptions={{
         headerTitleAlign: "center",
         headerStyle: {
-          backgroundColor: "#fff",
+          backgroundColor: "#20232a",
           elevation: 0,
           shadowOpacity: 0,
           borderBottomWidth: 1,
-          borderBottomColor: "#f0f0f0",
+          borderBottomColor: "#373b47",
           paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
           minHeight:
             Platform.OS === "android"
@@ -245,7 +245,7 @@ function StackNavigator() {
           overflow: "visible",
         },
         headerTitleStyle: {
-          color: "#333",
+          color: "#ffffff",
           fontSize: 18,
           fontWeight: "600",
           lineHeight: 22,
@@ -274,7 +274,7 @@ function StackNavigator() {
               : 0,
         },
         headerTintColor: "#61dafb",
-        cardStyle: { backgroundColor: "#fff" },
+        cardStyle: { backgroundColor: "#20232a" },
       }}
     >
       <Stack.Screen
@@ -568,7 +568,7 @@ function DrawerNavigator() {
       screenOptions={{
         drawerStyle: {
           width: "80%",
-          backgroundColor: "#fff",
+          backgroundColor: "#20232a",
         },
         overlayColor: "rgba(0,0,0,0.5)",
         swipeEnabled: true,
@@ -599,7 +599,7 @@ export default function App() {
 const styles = StyleSheet.create({
   drawerContainer: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#20232a",
     paddingTop: 0,
   },
   drawerHeader: {
@@ -607,20 +607,20 @@ const styles = StyleSheet.create({
     paddingVertical: 35,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: "#e9ecef",
+    borderBottomColor: "#373b47",
     marginBottom: 20,
-    backgroundColor: "#f8f9fa",
+    backgroundColor: "#1a1d23",
   },
   drawerTitle: {
     fontSize: 26,
-    color: "#1a1a1a",
+    color: "#ffffff",
     fontWeight: "800",
     marginTop: 15,
     letterSpacing: 0.5,
   },
   drawerSubtitle: {
     fontSize: 14,
-    color: "#6c757d",
+    color: "#b4b4b4",
     fontWeight: "500",
     marginTop: 6,
     letterSpacing: 0.3,
@@ -630,12 +630,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 15,
     marginBottom: 15,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#282c34",
     borderRadius: 12,
     paddingHorizontal: 15,
     height: 50,
     borderWidth: 1,
-    borderColor: "#e0e0e0",
+    borderColor: "#373b47",
   },
   searchIcon: {
     marginRight: 12,
@@ -643,7 +643,7 @@ const styles = StyleSheet.create({
   searchBox: {
     flex: 1,
     fontSize: 16,
-    color: "#333",
+    color: "#ffffff",
     height: 50,
   },
   menuScroll: {
@@ -653,9 +653,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     marginVertical: 5,
     borderRadius: 14,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#282c34",
     borderWidth: 1,
-    borderColor: "#e9ecef",
+    borderColor: "#373b47",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
@@ -672,7 +672,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: "#f0f8ff",
+    backgroundColor: "rgba(97, 218, 251, 0.1)",
     alignItems: "center",
     justifyContent: "center",
     marginRight: 14,
@@ -680,7 +680,7 @@ const styles = StyleSheet.create({
   menuItemText: {
     flex: 1,
     fontSize: 16,
-    color: "#2c3e50",
+    color: "#ffffff",
     fontWeight: "600",
     letterSpacing: 0.2,
   },

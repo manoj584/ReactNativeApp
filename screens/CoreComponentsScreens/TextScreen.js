@@ -8,7 +8,7 @@ const TextScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="Text Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>Text</BoldAccent> component is used to display
         text in a React Native app. It can be styled with various text
         properties.
@@ -21,7 +21,7 @@ import { Text } from 'react-native';
 return (
   <Text style={styles.text}>Hello, World!</Text>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a simple <BoldAccent>Text</BoldAccent>
         component is rendered.
       </BodyText>

@@ -721,7 +721,7 @@ const InterviewQuestionsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#282c34",
+    backgroundColor: "#20232a",
     paddingBottom: 30,
   },
   headerSection: {
@@ -739,7 +739,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     textAlign: "center",
     marginTop: 8,
     fontWeight: "400",
@@ -749,7 +749,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   card: {
-    backgroundColor: "#3a3f47",
+    backgroundColor: "#282c34",
     borderRadius: 16,
     paddingVertical: 40,
     paddingHorizontal: 20,
@@ -762,7 +762,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 6,
     borderWidth: 1,
-    borderColor: "#4a5057",
+    borderColor: "#373b47",
   },
   iconWrapper: {
     marginBottom: 20,
@@ -772,14 +772,14 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 22,
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "700",
     textAlign: "center",
     marginBottom: 8,
   },
   cardSubtitle: {
     fontSize: 14,
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     textAlign: "center",
     fontWeight: "500",
   },

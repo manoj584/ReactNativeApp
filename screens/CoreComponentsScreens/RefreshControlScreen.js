@@ -27,7 +27,7 @@ const RefreshControlScreen = () => {
     >
       <ScreenHeader title="RefreshControl Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>RefreshControl</BoldAccent> component is used to
         implement pull-to-refresh functionality in a scrollable view (e.g., a
         list).
@@ -56,14 +56,14 @@ const App = () => {
     </ScrollView>
   );
 };`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a <BoldAccent>RefreshControl</BoldAccent>{" "}
         is attached to a <BoldAccent>ScrollView</BoldAccent> to allow
         pull-to-refresh functionality.
       </BodyText>
 
       <SubHeader>Pull to Refresh Demo</SubHeader>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         Pull down to trigger the refresh action. The screen will simulate data
         refreshing.
       </BodyText>

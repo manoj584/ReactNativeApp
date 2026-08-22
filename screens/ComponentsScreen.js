@@ -12,7 +12,7 @@ const ComponentsScreen = ({ navigation }) => {
   return (
     <ScreenContainer>
       <ScreenHeader title="Core Components" />
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         React Native has many Core Components for everything from controls to
         activity indicators. Here are some essential ones:
       </BodyText>

@@ -9,7 +9,7 @@ const ImageScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="Image Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>Image</BoldAccent> component is used to display
         images in a React Native app. It supports both local and remote image
         sources and provides various styling options.
@@ -25,7 +25,7 @@ return (
     style={{ width: 100, height: 100 }}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a local image file is displayed using the{" "}
         <BoldAccent>Image</BoldAccent> component.
       </BodyText>
@@ -40,7 +40,7 @@ return (
     style={{ width: 200, height: 200 }}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The above code demonstrates displaying an image from a remote URL.
       </BodyText>
 
@@ -50,7 +50,7 @@ return (
           source={{ uri: "https://reactnative.dev/img/tiny_logo.png" }}
           style={{ width: 100, height: 100, marginBottom: 10 }}
         />
-        <Text style={{ fontSize: 14, color: "#f0f0f0" }}>React Native Logo</Text>
+        <Text style={{ fontSize: 14, color: "#b4b4b4" }}>React Native Logo</Text>
       </View>
     </ScreenContainer>
   );

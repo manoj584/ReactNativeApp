@@ -8,7 +8,7 @@ const TextInputScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="TextInput Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>TextInput</BoldAccent> component is used to
         capture user input in a text field. It supports features like
         placeholders, styles, and event handling.
@@ -24,7 +24,7 @@ return (
     style={styles.input}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a simple{" "}
         <BoldAccent>TextInput</BoldAccent> field with a placeholder is
         created.
@@ -47,7 +47,7 @@ return (
     }}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In this example, a styled <BoldAccent>TextInput</BoldAccent> is
         created with padding, border, and rounded corners.
       </BodyText>

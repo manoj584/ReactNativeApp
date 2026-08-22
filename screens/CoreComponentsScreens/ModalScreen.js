@@ -11,7 +11,7 @@ const ModalScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="Modal Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>Modal</BoldAccent> component is used to create
         an overlay that can be displayed on top of the current view. It is
         commonly used for pop-ups or custom dialogs.
@@ -44,7 +44,7 @@ const App = () => {
     </View>
   );
 };`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a <BoldAccent>Modal</BoldAccent> is
         triggered by a button. It uses the{" "}
         <BoldAccent>animationType</BoldAccent> property to define the
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   modalText: { fontSize: 18, marginBottom: 15 },
   closeButton: { backgroundColor: "#61dafb", padding: 10, borderRadius: 5 },
-  closeButtonText: { color: "#fff", fontWeight: "bold" },
+  closeButtonText: { color: "#ffffff", fontWeight: "bold" },
 });
 
 export default ModalScreen;

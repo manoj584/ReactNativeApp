@@ -23,14 +23,14 @@ const SplashScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "rgb(35,39,47)",
+    backgroundColor: "#20232a",
     alignItems: "center",
     justifyContent: "center",
   },
   text: {
     marginTop: 10,
     fontSize: 20,
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "bold",
   },
 });

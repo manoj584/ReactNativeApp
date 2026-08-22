@@ -180,7 +180,7 @@ const useCustomCounter = (initialValue = 0) => {
           title="Increment Custom Count"
           onPress={customCounter.increment}
         />
-        <Text style={{ fontSize: 24, color: "rgb(246,247,249)", marginVertical: 10 }}>
+        <Text style={{ fontSize: 24, color: "#ffffff", marginVertical: 10 }}>
           Custom Count: {customCounter.count}
         </Text>
         <Button

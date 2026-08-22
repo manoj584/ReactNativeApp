@@ -27,12 +27,12 @@ export function CardSubtitle({ children, style }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#3a3f47",
+    backgroundColor: "#282c34",
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: "#4a5057",
+    borderColor: "#373b47",
     elevation: 4,
     shadowColor: "#000",
     shadowOpacity: 0.2,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   cardSubtitle: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 13,
     textAlign: "center",
     marginTop: 4,

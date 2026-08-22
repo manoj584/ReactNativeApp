@@ -8,7 +8,7 @@ const KeyboardAvoidingViewScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="KeyboardAvoidingView Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>KeyboardAvoidingView</BoldAccent> component is
         used to automatically adjust the position of UI elements when the
         keyboard is displayed. This ensures that inputs or buttons are not
@@ -28,7 +28,7 @@ return (
     <Button title="Submit" onPress={() => {}} />
   </KeyboardAvoidingView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above,{" "}
         <BoldAccent>KeyboardAvoidingView</BoldAccent> is used with the{" "}
         <BoldAccent>behavior</BoldAccent> property set to{" "}
@@ -50,7 +50,7 @@ return (
     <Button title="Send" onPress={() => {}} />
   </KeyboardAvoidingView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the advanced example, the <BoldAccent>behavior</BoldAccent>{" "}
         dynamically changes based on the platform, and the{" "}
         <BoldAccent>keyboardVerticalOffset</BoldAccent> is used to

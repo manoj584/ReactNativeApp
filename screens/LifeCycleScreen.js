@@ -108,7 +108,7 @@ useEffect(() => {
 
       <View style={{ marginTop: 20, alignItems: "center" }}>
         <Button color="#61dafb" title="Increment" onPress={increment} />
-        <Text style={{ fontSize: 24, color: "rgb(246,247,249)", marginVertical: 10 }}>
+        <Text style={{ fontSize: 24, color: "#ffffff", marginVertical: 10 }}>
           Count: {count}
         </Text>
         <Button color="#61dafb" title="Decrement" onPress={decrement} />

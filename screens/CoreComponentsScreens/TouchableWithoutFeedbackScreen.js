@@ -11,7 +11,7 @@ const TouchableWithoutFeedbackScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="TouchableWithoutFeedback Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>TouchableWithoutFeedback</BoldAccent> component
         is used to dismiss the keyboard when tapping outside of input fields.
       </BodyText>
@@ -30,7 +30,7 @@ return (
 
       <TouchableWithoutFeedback onPress={dismissKeyboard}>
         <View style={styles.box}>
-          <Text style={{ fontSize: 16, color: "#f0f0f0" }}>Tap here to dismiss the keyboard</Text>
+          <Text style={{ fontSize: 16, color: "#b4b4b4" }}>Tap here to dismiss the keyboard</Text>
         </View>
       </TouchableWithoutFeedback>
     </ScreenContainer>

@@ -14,7 +14,7 @@ const IOSComponentsScreen = () => {
       <ScreenHeader title="iOS Components" />
 
       <SubHeader>InputAccessoryView</SubHeader>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         InputAccessoryView displays an accessory view, such as a toolbar, above
         the keyboard on iOS devices.
       </BodyText>
@@ -37,14 +37,14 @@ return (
     </View>
   </InputAccessoryView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above,{" "}
         <BoldAccent>InputAccessoryView</BoldAccent> is used to display a
         toolbar above the keyboard on iOS devices.
       </BodyText>
 
       <SubHeader>SafeAreaView</SubHeader>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         SafeAreaView ensures that content is within the safe area boundaries of
         a device (e.g., iPhone X).
       </BodyText>
@@ -58,7 +58,7 @@ return (
     <Text style={styles.safeAreaText}>Content within the safe area.</Text>
   </SafeAreaView>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, <BoldAccent>SafeAreaView</BoldAccent> is
         used to ensure that content is displayed within the safe area boundaries
         of a device.

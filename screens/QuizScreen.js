@@ -153,7 +153,7 @@ const QuizScreen = () => {
       case "code":
         return "#5cb85c";
       default:
-        return "#fff";
+        return "#ffffff";
     }
   };
 
@@ -593,7 +593,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   progressText: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 14,
     fontWeight: "600",
   },
@@ -640,7 +640,7 @@ const styles = StyleSheet.create({
     borderColor: "#4a5057",
   },
   questionText: {
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 18,
     fontWeight: "600",
     lineHeight: 26,
@@ -719,7 +719,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   optionText: {
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 15,
     flex: 1,
     fontWeight: "500",
@@ -738,7 +738,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3a3f47",
     borderRadius: 12,
     padding: 16,
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 16,
     borderWidth: 1.5,
     borderColor: "#4a5057",
@@ -781,7 +781,7 @@ const styles = StyleSheet.create({
   codeInput: {
     backgroundColor: "#1e2127",
     padding: 16,
-    color: "#e6e6e6",
+    color: "#ffffff",
     fontSize: 15,
     fontFamily: "monospace",
     minHeight: 100,
@@ -799,7 +799,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   correctCodeText: {
-    color: "#e6e6e6",
+    color: "#ffffff",
     fontSize: 14,
     fontFamily: "monospace",
   },
@@ -823,7 +823,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   explanationText: {
-    color: "#c0c0c0",
+    color: "#b4b4b4",
     fontSize: 14,
     lineHeight: 22,
   },
@@ -855,7 +855,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   nextButtonText: {
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 16,
     fontWeight: "700",
   },
@@ -881,13 +881,13 @@ const styles = StyleSheet.create({
   },
   scoreText: {
     fontSize: 48,
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "800",
     marginTop: 8,
   },
   percentageText: {
     fontSize: 20,
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontWeight: "600",
     marginTop: 4,
   },
@@ -899,7 +899,7 @@ const styles = StyleSheet.create({
     borderTopColor: "#4a5057",
   },
   breakdownTitle: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 14,
     fontWeight: "700",
     textTransform: "uppercase",
@@ -913,11 +913,11 @@ const styles = StyleSheet.create({
   },
   breakdownLabel: {
     flex: 1,
-    color: "#c0c0c0",
+    color: "#b4b4b4",
     fontSize: 15,
   },
   breakdownValue: {
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 15,
     fontWeight: "700",
   },
@@ -957,13 +957,13 @@ const styles = StyleSheet.create({
   },
   setupTitle: {
     fontSize: 28,
-    color: "#fff",
+    color: "#ffffff",
     fontWeight: "800",
     marginTop: 12,
   },
   setupSubtitle: {
     fontSize: 14,
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     marginTop: 6,
   },
   sectionLabel: {
@@ -993,7 +993,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(97, 218, 251, 0.15)",
   },
   setupOptionText: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 14,
     fontWeight: "600",
   },
@@ -1032,7 +1032,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(97, 218, 251, 0.15)",
   },
   amountText: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 16,
     fontWeight: "700",
   },
@@ -1054,12 +1054,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bonusToggleLabel: {
-    color: "#fff",
+    color: "#ffffff",
     fontSize: 15,
     fontWeight: "600",
   },
   bonusToggleDesc: {
-    color: "#a0a0a0",
+    color: "#b4b4b4",
     fontSize: 12,
     marginTop: 2,
   },
@@ -1078,7 +1078,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   apiCredit: {
-    color: "#666",
+    color: "#6c757d",
     fontSize: 12,
     textAlign: "center",
     marginTop: 16,

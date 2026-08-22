@@ -8,7 +8,7 @@ const ImageBackgroundScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="ImageBackground Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>ImageBackground</BoldAccent> component is used
         to display an image as the background of a view. It supports nesting
         other components inside it.
@@ -28,7 +28,7 @@ return (
     <Text style={{ color: 'white' }}>Hello, Background!</Text>
   </ImageBackground>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, an image is set as the background, and a{" "}
         <BoldAccent>Text</BoldAccent> component is displayed over it.
       </BodyText>
@@ -46,7 +46,7 @@ return (
     </View>
   </ImageBackground>
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In this example, a semi-transparent overlay is added over the background
         image with text content inside it.
       </BodyText>

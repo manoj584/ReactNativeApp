@@ -11,7 +11,7 @@ export function NumberBadge({ number, size = 32 }) {
 
 const styles = StyleSheet.create({
   badge: {
-    backgroundColor: "rgba(97, 218, 251, 0.15)",
+    backgroundColor: "rgba(97, 218, 251, 0.1)",
     alignItems: "center",
     justifyContent: "center",
     marginRight: 12,

@@ -1,14 +1,15 @@
 import React from "react";
+import { View, StyleSheet } from "react-native";
 import {
-  ScreenContainer, ScreenHeader, SubHeader, BodyText, BoldAccent, CodeBlock,
+  ScreenHeader, SubHeader, BodyText, BoldAccent, CodeBlock,
 } from "../../components/ui";
 
 const FlatListScreen = () => {
   return (
-    <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
+    <View style={styles.container}>
       <ScreenHeader title="FlatList Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>FlatList</BoldAccent> component is used to
         efficiently render large lists of data. It supports scrolling,
         customizable layouts, and performance optimizations.
@@ -31,7 +32,7 @@ return (
     renderItem={({ item }) => <Text>{item.name}</Text>}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, the <BoldAccent>FlatList</BoldAccent>{" "}
         component renders a list of items using the `data` array.
       </BodyText>
@@ -57,12 +58,20 @@ return (
     )}
   />
 );`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In this example, the <BoldAccent>FlatList</BoldAccent> renders a
         list of fruits with custom styling for each item.
       </BodyText>
-    </ScreenContainer>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#20232a",
+    padding: 20,
+  },
+});
 
 export default FlatListScreen;

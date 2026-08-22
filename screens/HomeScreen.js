@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
@@ -64,10 +64,10 @@ const HomeScreen = ({ navigation }) => {
     <ScreenContainer style={{ padding: 0, paddingBottom: 30 }}>
       <ScreenHeader
         title="Welcome to React Native"
-        subtitle="Learn mobile development with ease"
+        subtitle="Learn once, write anywhere"
       />
 
-      <View style={{ paddingHorizontal: 20, marginBottom: 0 }}>
+      <View style={styles.searchContainer}>
         <SearchBar
           value={searchTerm}
           onChangeText={setSearchTerm}
@@ -75,36 +75,54 @@ const HomeScreen = ({ navigation }) => {
         />
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-          paddingHorizontal: 10,
-        }}
-      >
+      <View style={styles.cardsContainer}>
         {filteredScreens.map((screen, index) => (
           <CardPressable
             key={index}
             onPress={() => navigation.navigate(screen.name)}
-            style={{
-              width: CARD_WIDTH,
-              marginVertical: 10,
-              paddingVertical: 30,
-              paddingHorizontal: 15,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            style={[
+              styles.card,
+              {
+                width: CARD_WIDTH,
+              },
+            ]}
           >
-            <View style={{ marginBottom: 12 }}>{screen.icon}</View>
-            <Text style={{ fontSize: 16, color: "#fff", fontWeight: "700", textAlign: "center" }}>
-              {screen.label}
-            </Text>
+            <View style={styles.iconContainer}>{screen.icon}</View>
+            <Text style={styles.cardLabel}>{screen.label}</Text>
           </CardPressable>
         ))}
       </View>
     </ScreenContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  searchContainer: {
+    paddingHorizontal: 20,
+    marginBottom: 0,
+  },
+  cardsContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    paddingHorizontal: 10,
+  },
+  card: {
+    marginVertical: 10,
+    paddingVertical: 30,
+    paddingHorizontal: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  iconContainer: {
+    marginBottom: 12,
+  },
+  cardLabel: {
+    fontSize: 16,
+    color: "#ffffff",
+    fontWeight: "700",
+    textAlign: "center",
+  },
+});
 
 export default HomeScreen;

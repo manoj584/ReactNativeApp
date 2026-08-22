@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   subHeader: {
     fontSize: 20,
-    color: "#f0f0f0",
+    color: "#b4b4b4",
     marginTop: 20,
     marginBottom: 10,
     fontWeight: "bold",
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   example: {
     fontSize: 16,
-    color: "#f0f0f0",
+    color: "#b4b4b4",
     marginTop: 10,
   },
 });

@@ -11,7 +11,7 @@ const PressableScreen = () => {
     <ScreenContainer style={{ justifyContent: "center", alignItems: "center" }}>
       <ScreenHeader title="Pressable Component" />
 
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         The <BoldAccent>Pressable</BoldAccent> component is used to
         create a clickable element that responds to touch interactions. It
         replaces the <BoldAccent>TouchableOpacity</BoldAccent>,{" "}
@@ -34,7 +34,7 @@ const App = () => {
     </Pressable>
   );
 };`}</CodeBlock>
-      <BodyText style={{ color: "#f0f0f0" }}>
+      <BodyText style={{ color: "#b4b4b4" }}>
         In the example above, a simple{" "}
         <BoldAccent>Pressable</BoldAccent> component is used. When the
         user presses it, the state changes, and the text toggles between "Press
@@ -59,7 +59,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   button: { padding: 15, borderRadius: 5, alignItems: "center" },
-  buttonText: { color: "#fff", fontSize: 18, fontWeight: "bold" },
+  buttonText: { color: "#ffffff", fontSize: 18, fontWeight: "bold" },
 });
 
 export default PressableScreen;
