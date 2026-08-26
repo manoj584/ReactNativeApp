@@ -1,5 +1,5 @@
 import "./global.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TouchableOpacity,
   Text,
@@ -21,6 +21,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+import { getLangfuseClient } from "./utils/langfuse";
 
 // Importing Screens
 import SplashScreen from "./screens/SplashScreen";
@@ -33,6 +34,11 @@ import StateManagementScreen from "./screens/StateManagementScreen";
 import PropsScreen from "./screens/PropsScreen";
 import LifeCycleScreen from "./screens/LifeCycleScreen";
 import HooksScreen from "./screens/HooksScreen";
+import AdvancedHooksScreen from "./screens/AdvancedHooksScreen";
+import ReactNativeAPIScreen from "./screens/ReactNativeAPIScreen";
+import PerformanceScreen from "./screens/PerformanceScreen";
+import StylingScreen from "./screens/StylingScreen";
+import NavigationPatternsScreen from "./screens/NavigationPatternsScreen";
 import CoreComponentsScreen from "./screens/CoreComponentsScreen";
 import ComponentDetailScreen from "./screens/ComponentDetailScreen";
 import ViewScreen from "./screens/CoreComponentsScreens/ViewScreen";
@@ -97,112 +103,145 @@ const Stack = createStackNavigator();
 
 // Custom Drawer Content (with search and navigation buttons)
 function CustomDrawerContent(props) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const { width } = useWindowDimensions();
-
-  const screens = [
+  const categories = [
     {
-      name: "HomeScreen",
-      label: "Home",
-      icon: <FontAwesome name="home" size={32} color="#61dafb" />,
+      title: "Main",
+      items: [
+        {
+          name: "HomeScreen",
+          label: "Home",
+          icon: <FontAwesome name="home" size={18} color="#61dafb" />,
+        },
+      ],
     },
     {
-      name: "JSXScreen",
-      label: "JSX",
-      icon: <FontAwesome name="code" size={32} color="#61dafb" />,
+      title: "Fundamentals",
+      items: [
+        {
+          name: "JSXScreen",
+          label: "JSX",
+          icon: <FontAwesome name="code" size={18} color="#61dafb" />,
+        },
+        {
+          name: "ComponentsScreen",
+          label: "Components",
+          icon: <FontAwesome name="cogs" size={18} color="#61dafb" />,
+        },
+        {
+          name: "PropsScreen",
+          label: "Props",
+          icon: <MaterialCommunityIcons name="link" size={18} color="#61dafb" />,
+        },
+        {
+          name: "LifeCycleScreen",
+          label: "LifeCycle",
+          icon: <FontAwesome6 name="infinity" size={16} color="#61dafb" />,
+        },
+        {
+          name: "ReactNativeAPIScreen",
+          label: "React Native APIs",
+          icon: <FontAwesome name="code" size={18} color="#61dafb" />,
+        },
+      ],
     },
     {
-      name: "ComponentsScreen",
-      label: "Components",
-      icon: <FontAwesome name="cogs" size={32} color="#61dafb" />,
+      title: "Hooks & State",
+      items: [
+        {
+          name: "StateManagementScreen",
+          label: "State Management",
+          icon: <FontAwesome name="sitemap" size={18} color="#61dafb" />,
+        },
+        {
+          name: "HooksScreen",
+          label: "Hooks",
+          icon: <MaterialCommunityIcons name="hook" size={18} color="#61dafb" />,
+        },
+        {
+          name: "AdvancedHooksScreen",
+          label: "Advanced Hooks",
+          icon: <FontAwesome name="cogs" size={18} color="#61dafb" />,
+        },
+      ],
     },
     {
-      name: "StateManagementScreen",
-      label: "State Management",
-      icon: <FontAwesome name="sitemap" size={32} color="#61dafb" />,
+      title: "UI & Navigation",
+      items: [
+        {
+          name: "StylingScreen",
+          label: "Styling",
+          icon: <FontAwesome name="paint-brush" size={18} color="#61dafb" />,
+        },
+        {
+          name: "NavigationPatternsScreen",
+          label: "Navigation",
+          icon: <FontAwesome name="arrow-right" size={18} color="#61dafb" />,
+        },
+      ],
     },
     {
-      name: "PropsScreen",
-      label: "Props",
-      icon: <MaterialCommunityIcons name="link" size={32} color="#61dafb" />,
-    },
-    {
-      name: "LifeCycleScreen",
-      label: "LifeCycle",
-      icon: <FontAwesome6 name="infinity" size={24} color="#61dafb" />,
-    },
-    {
-      name: "HooksScreen",
-      label: "Hooks",
-      icon: <MaterialCommunityIcons name="hook" size={32} color="#61dafb" />,
-    },
-    {
-      name: "InterviewQuestionsScreen",
-      label: "Interview Questions",
-      icon: <FontAwesome name="question" size={32} color="#61dafb" />,
-    },
-    {
-      name: "QuizScreen",
-      label: "Quiz & Test",
-      icon: <MaterialCommunityIcons name="head-question" size={32} color="#61dafb" />,
+      title: "Practice & Test",
+      items: [
+        {
+          name: "PerformanceScreen",
+          label: "Performance",
+          icon: <FontAwesome name="flash" size={18} color="#61dafb" />,
+        },
+        {
+          name: "InterviewQuestionsScreen",
+          label: "Interview Questions",
+          icon: <FontAwesome name="question" size={18} color="#61dafb" />,
+        },
+        {
+          name: "QuizScreen",
+          label: "Quiz & Test",
+          icon: <MaterialCommunityIcons name="head-question" size={18} color="#61dafb" />,
+        },
+      ],
     },
   ];
-
-  const filteredScreens = screens.filter((screen) =>
-    screen.label.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <SafeAreaView style={styles.drawerContainer} edges={["top"]}>
       <View style={styles.drawerHeader}>
-        <MaterialCommunityIcons name="react" size={50} color="#61dafb" />
+        <MaterialCommunityIcons name="react" size={38} color="#61dafb" />
         <Text style={styles.drawerTitle}>React Native</Text>
         <Text style={styles.drawerSubtitle}>Learning Hub</Text>
       </View>
-      
-      <View style={styles.searchContainer}>
-        <FontAwesome
-          name="search"
-          size={20}
-          color="#61dafb"
-          style={styles.searchIcon}
-        />
-        <TextInput
-          style={styles.searchBox}
-          placeholder="Search..."
-          placeholderTextColor="#6c757d"
-          value={searchTerm}
-          onChangeText={setSearchTerm}
-        />
-      </View>
+
       <ScrollView
         style={styles.menuScroll}
-        contentContainerStyle={{ paddingTop: 8, paddingBottom: 20 }}
+        contentContainerStyle={{ paddingTop: 8, paddingBottom: 24 }}
         showsVerticalScrollIndicator={false}
       >
-        {filteredScreens.map((screen, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.menuItem}
-            onPress={() => {
-              props.navigation.dispatch(
-                CommonActions.navigate({
-                  name: "MainStack",
-                  params: { screen: screen.name },
-                })
-              );
-              props.navigation.closeDrawer();
-            }}
-            activeOpacity={0.7}
-          >
-            <View style={styles.menuItemContent}>
-              <View style={styles.iconContainer}>
-                {screen.icon}
-              </View>
-              <Text style={styles.menuItemText}>{screen.label}</Text>
-              <FontAwesome name="angle-right" size={20} color="#6c757d" />
-            </View>
-          </TouchableOpacity>
+        {categories.map((section, sectionIndex) => (
+          <View key={sectionIndex} style={styles.sectionBlock}>
+            <Text style={styles.sectionHeaderTitle}>{section.title}</Text>
+            {section.items.map((screen, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.menuItem}
+                onPress={() => {
+                  props.navigation.dispatch(
+                    CommonActions.navigate({
+                      name: "MainStack",
+                      params: { screen: screen.name },
+                    })
+                  );
+                  props.navigation.closeDrawer();
+                }}
+                activeOpacity={0.7}
+              >
+                <View style={styles.menuItemContent}>
+                  <View style={styles.iconContainer}>
+                    {screen.icon}
+                  </View>
+                  <Text style={styles.menuItemText}>{screen.label}</Text>
+                  <FontAwesome name="angle-right" size={16} color="#6c757d" />
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
         ))}
       </ScrollView>
     </SafeAreaView>
@@ -237,12 +276,10 @@ function StackNavigator() {
           shadowOpacity: 0,
           borderBottomWidth: 1,
           borderBottomColor: "#373b47",
-          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
           minHeight:
             Platform.OS === "android"
               ? 56 + (StatusBar.currentHeight || 0)
               : 56,
-          overflow: "visible",
         },
         headerTitleStyle: {
           color: "#ffffff",
@@ -253,12 +290,6 @@ function StackNavigator() {
         headerTitleContainerStyle: {
           justifyContent: "center",
           alignItems: "center",
-          paddingTop:
-            Platform.OS === "android"
-              ? StatusBar.currentHeight
-                ? StatusBar.currentHeight / 2
-                : 0
-              : 0,
           left: 0,
           right: 0,
         },
@@ -266,12 +297,6 @@ function StackNavigator() {
           paddingLeft: 8,
           alignItems: "center",
           justifyContent: "center",
-          paddingTop:
-            Platform.OS === "android"
-              ? StatusBar.currentHeight
-                ? StatusBar.currentHeight / 2
-                : 0
-              : 0,
         },
         headerTintColor: "#61dafb",
         cardStyle: { backgroundColor: "#20232a" },
@@ -364,6 +389,46 @@ function StackNavigator() {
         component={HooksScreen}
         options={{
           title: "Hooks",
+          headerLeft: () => <CustomBackButton />,
+        }}
+      />
+      <Stack.Screen
+        name="AdvancedHooksScreen"
+        component={AdvancedHooksScreen}
+        options={{
+          title: "Advanced Hooks",
+          headerLeft: () => <CustomBackButton />,
+        }}
+      />
+      <Stack.Screen
+        name="ReactNativeAPIScreen"
+        component={ReactNativeAPIScreen}
+        options={{
+          title: "React Native APIs",
+          headerLeft: () => <CustomBackButton />,
+        }}
+      />
+      <Stack.Screen
+        name="PerformanceScreen"
+        component={PerformanceScreen}
+        options={{
+          title: "Performance",
+          headerLeft: () => <CustomBackButton />,
+        }}
+      />
+      <Stack.Screen
+        name="StylingScreen"
+        component={StylingScreen}
+        options={{
+          title: "Styling",
+          headerLeft: () => <CustomBackButton />,
+        }}
+      />
+      <Stack.Screen
+        name="NavigationPatternsScreen"
+        component={NavigationPatternsScreen}
+        options={{
+          title: "Navigation Patterns",
           headerLeft: () => <CustomBackButton />,
         }}
       />
@@ -562,12 +627,15 @@ function InterviewStackNavigator() {
 
 // Drawer Navigator (with StackNavigator and InterviewStackNavigator)
 function DrawerNavigator() {
+  const { width } = useWindowDimensions();
+  const drawerWidth = width > 500 ? 320 : "80%";
+
   return (
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{
         drawerStyle: {
-          width: "80%",
+          width: drawerWidth,
           backgroundColor: "#20232a",
         },
         overlayColor: "rgba(0,0,0,0.5)",
@@ -586,9 +654,29 @@ function DrawerNavigator() {
 
 // App Container
 export default function App() {
+  const langfuse = getLangfuseClient();
+  
+  useEffect(() => {
+    // Initialize Langfuse session
+    langfuse.setSessionId(langfuse.traceId);
+    langfuse.trackScreen('App_Launch', {
+      timestamp: new Date().toISOString(),
+    });
+  }, [langfuse]);
+
   return (
     <Provider store={createStore(counterReducer)}>
-      <NavigationContainer>
+      <NavigationContainer
+        onStateChange={(state) => {
+          // Track screen navigation
+          const currentRoute = state.routes[state.index];
+          if (currentRoute) {
+            langfuse.trackScreen(currentRoute.name, {
+              params: currentRoute.params,
+            });
+          }
+        }}
+      >
         <DrawerNavigator />
       </NavigationContainer>
     </Provider>
@@ -604,82 +692,68 @@ const styles = StyleSheet.create({
   },
   drawerHeader: {
     alignItems: "center",
-    paddingVertical: 35,
+    paddingVertical: 18,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#373b47",
-    marginBottom: 20,
+    marginBottom: 12,
     backgroundColor: "#1a1d23",
   },
   drawerTitle: {
-    fontSize: 26,
+    fontSize: 20,
     color: "#ffffff",
     fontWeight: "800",
-    marginTop: 15,
+    marginTop: 8,
     letterSpacing: 0.5,
   },
   drawerSubtitle: {
-    fontSize: 14,
+    fontSize: 12,
     color: "#b4b4b4",
     fontWeight: "500",
-    marginTop: 6,
+    marginTop: 3,
     letterSpacing: 0.3,
   },
-  searchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginHorizontal: 15,
-    marginBottom: 15,
-    backgroundColor: "#282c34",
-    borderRadius: 12,
-    paddingHorizontal: 15,
-    height: 50,
-    borderWidth: 1,
-    borderColor: "#373b47",
+  sectionBlock: {
+    marginBottom: 12,
   },
-  searchIcon: {
-    marginRight: 12,
-  },
-  searchBox: {
-    flex: 1,
-    fontSize: 16,
-    color: "#ffffff",
-    height: 50,
+  sectionHeaderTitle: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#8a93a5",
+    textTransform: "uppercase",
+    letterSpacing: 0.8,
+    marginLeft: 16,
+    marginBottom: 6,
   },
   menuScroll: {
     flex: 1,
   },
   menuItem: {
     marginHorizontal: 12,
-    marginVertical: 5,
-    borderRadius: 14,
+    marginVertical: 3,
+    borderRadius: 10,
     backgroundColor: "#282c34",
     borderWidth: 1,
     borderColor: "#373b47",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 1,
   },
   menuItemContent: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 16,
-    paddingHorizontal: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
   },
   iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 10,
+    width: 32,
+    height: 32,
+    borderRadius: 8,
     backgroundColor: "rgba(97, 218, 251, 0.1)",
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 14,
+    marginRight: 10,
   },
   menuItemText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     color: "#ffffff",
     fontWeight: "600",
     letterSpacing: 0.2,

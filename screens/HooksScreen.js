@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, TouchableOpacity } from "react-native";
 import {
   ScreenContainer,
   ScreenHeader,
@@ -173,24 +173,102 @@ const useCustomCounter = (initialValue = 0) => {
         with increment and decrement functions.
       </BodyText>
 
-      {/* Demonstration of Custom Hook */}
-      <View style={{ marginTop: 20, alignItems: "center" }}>
-        <Button
-          color="#61dafb"
-          title="Increment Custom Count"
-          onPress={customCounter.increment}
-        />
-        <Text style={{ fontSize: 24, color: "#ffffff", marginVertical: 10 }}>
-          Custom Count: {customCounter.count}
-        </Text>
-        <Button
-          color="#61dafb"
-          title="Decrement Custom Count"
-          onPress={customCounter.decrement}
-        />
+      {/* Interactive Demonstration of Hooks */}
+      <SubHeader>Interactive Hooks Playground:</SubHeader>
+      <View style={styles.demoCard}>
+        <Text style={styles.demoTitle}>Live Hook State Demo</Text>
+        
+        <View style={styles.counterRow}>
+          <TouchableOpacity style={styles.actionBtn} onPress={customCounter.decrement}>
+            <Text style={styles.actionBtnText}>-</Text>
+          </TouchableOpacity>
+
+          <View style={styles.countBadge}>
+            <Text style={styles.countBadgeText}>{customCounter.count}</Text>
+          </View>
+
+          <TouchableOpacity style={styles.actionBtn} onPress={customCounter.increment}>
+            <Text style={styles.actionBtnText}>+</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.infoBox}>
+          <Text style={styles.infoText}>
+            <BoldAccent>useMemo Result (Count × 100):</BoldAccent> {customCounter.count * 100}
+          </Text>
+        </View>
       </View>
     </ScreenContainer>
   );
 };
 
+const styles = {
+  demoCard: {
+    width: "100%",
+    backgroundColor: "#282c34",
+    borderRadius: 14,
+    padding: 18,
+    marginVertical: 15,
+    borderWidth: 1,
+    borderColor: "#373b47",
+    alignItems: "center",
+  },
+  demoTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#61dafb",
+    marginBottom: 14,
+  },
+  counterRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  actionBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: "rgba(97, 218, 251, 0.15)",
+    borderWidth: 1,
+    borderColor: "#61dafb",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  actionBtnText: {
+    fontSize: 22,
+    fontWeight: "800",
+    color: "#61dafb",
+  },
+  countBadge: {
+    minWidth: 70,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    marginHorizontal: 16,
+    backgroundColor: "#1c1f26",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#373b47",
+    alignItems: "center",
+  },
+  countBadgeText: {
+    fontSize: 22,
+    fontWeight: "800",
+    color: "#ffffff",
+  },
+  infoBox: {
+    width: "100%",
+    backgroundColor: "#1c1f26",
+    padding: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#373b47",
+    alignItems: "center",
+  },
+  infoText: {
+    fontSize: 14,
+    color: "#b4b4b4",
+  },
+};
+
 export default HooksScreen;
+
