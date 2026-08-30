@@ -28,6 +28,8 @@ jobs:
 
       - name: Build web bundle
         run: npx expo export --platform web
+        env:
+          EXPO_PUBLIC_ROUTER_ROOT: /ReactNativeApp
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
