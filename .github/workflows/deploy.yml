@@ -29,6 +29,8 @@ jobs:
           npx expo export --platform web
           sed -i 's|href="/|href="./|g' ./dist/index.html
           sed -i 's|src="/|src="./|g' ./dist/index.html
+          sed -i 's|overflow: hidden;|overflow: auto;|g' ./dist/index.html
+          sed -i 's|"/assets/|"./assets/|g' ./dist/_expo/static/js/web/*.js
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
