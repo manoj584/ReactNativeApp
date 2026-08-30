@@ -4,7 +4,6 @@ import { View, ScrollView, Text } from "react-native";
 export function ScreenContainer({ children, style }) {
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: "#20232a" }}
       contentContainerStyle={[
         { flexGrow: 1, backgroundColor: "#20232a", padding: 20, paddingBottom: 30 },
         style,

@@ -7,7 +7,7 @@ const ComponentDetailScreen = ({ route }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>{name}</Text>
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView>
         <Text style={styles.subHeader}>Syntax:</Text>
         <Text style={styles.syntax}>{syntax}</Text>
         <Text style={styles.subHeader}>Example:</Text>

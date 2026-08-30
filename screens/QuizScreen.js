@@ -160,7 +160,7 @@ const QuizScreen = () => {
   // ==================== SETUP SCREEN ====================
   if (!quizStarted) {
     return (
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.setupContainer}>
+      <ScrollView contentContainerStyle={styles.setupContainer}>
         <View style={styles.setupHeader}>
           <MaterialCommunityIcons name="head-question" size={60} color="#61dafb" />
           <Text style={styles.setupTitle}>React & React Native Quiz</Text>
@@ -279,7 +279,7 @@ const QuizScreen = () => {
     const codeTotal = answers.filter((a) => a.type === "code").length;
 
     return (
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.resultsContainer}>
+      <ScrollView contentContainerStyle={styles.resultsContainer}>
         <View style={styles.resultsCard}>
           <MaterialCommunityIcons
             name={percentage >= 70 ? "trophy" : "book-open-variant"}
@@ -340,7 +340,7 @@ const QuizScreen = () => {
   if (!question) return null;
 
   return (
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
         <View style={styles.progressInfo}>

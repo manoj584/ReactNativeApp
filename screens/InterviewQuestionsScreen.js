@@ -5,7 +5,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const InterviewQuestionsScreen = ({ navigation }) => {
   return (
     <ScrollView 
-      style={{ flex: 1 }}
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
